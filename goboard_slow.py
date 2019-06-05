@@ -68,14 +68,14 @@ class Board:
     def __init__(self, num_rows, num_cols):
         self.num_rows = num_rows
         self.num_cols = num_cols
-        self._grid = {}
+        self._grid = {}  # dict(Point: GoString)
 
     def place_stone(self, player, point):
         assert self.is_on_grid(point)
         assert self._grid.get(point) is None
-        adjacent_same_color = []
-        adjacent_opposite_color = []
-        liberties = []
+        adjacent_same_color = []  # list(GoString)
+        adjacent_opposite_color = []  # list(GoString)
+        liberties = []  # list(Point)
         """Examine direct neighbors of 'point' for
         similar and opposite colored strings
         and 'point's liberties"""
